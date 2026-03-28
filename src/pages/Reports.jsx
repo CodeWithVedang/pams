@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { jsPDF } from "jspdf";
+import { toPng } from "html-to-image";
 import { 
   BarChart, 
   Bar, 
@@ -155,19 +157,32 @@ export default function Reports() {
     fetchReports();
   }, [user?.uid, reportType]);
 
-  const handleDownload = () => {
-    if (timelineData.length === 0) return;
-    const header = Object.keys(timelineData[0]);
-    const csv = [
-      header.join(","),
-      ...timelineData.map(row => header.map(h => row[h]).join(","))
-    ].join("\n");
+  const handleDownload = async () => {
+    const input = document.getElementById("pdf-report-content");
+    if (!input) return;
     
-    const blob = new Blob([csv], { type: "text/csv" });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = `lifetrack_${reportType}_report.csv`;
-    link.click();
+    try {
+      const originalScrollY = window.scrollY;
+      window.scrollTo(0, 0);
+
+      const dataUrl = await toPng(input, { 
+        backgroundColor: '#ffffff',
+        pixelRatio: 2,
+        skipFonts: true // Speeds up rendering and avoids font loading CORS bugs
+      });
+      
+      window.scrollTo(0, originalScrollY);
+
+      const pdf = new jsPDF("p", "mm", "a4");
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (input.clientHeight * pdfWidth) / input.clientWidth;
+
+      pdf.addImage(dataUrl, "PNG", 0, 0, pdfWidth, pdfHeight);
+      pdf.save(`LifeTrack_${reportType}_Report.pdf`);
+    } catch (error) {
+      console.error("Failed to generate PDF:", error);
+      alert("Error generating PDF: " + (error.message || error.toString()));
+    }
   };
 
   return (
@@ -181,15 +196,18 @@ export default function Reports() {
         <button 
           onClick={handleDownload}
           className="flex items-center gap-2 bg-white border border-slate-200 px-6 py-3 rounded-2xl font-bold text-slate-700 hover:bg-slate-50 transition-all shadow-sm"
+          data-html2canvas-ignore
         >
           <Download className="w-4 h-4" />
-          Export Dataset
+          Export PDF
         </button>
       </section>
 
-      {/* STATS */}
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <StatCard 
+      {/* PDF CAPTURE TARGET */}
+      <div id="pdf-report-content" className="space-y-10 rounded-2xl bg-slate-50 p-2 -m-2">
+        {/* STATS */}
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <StatCard 
           icon={<Trophy />} 
           label="Total Completions" 
           value={totalCompletions.toString()} 
@@ -261,7 +279,7 @@ export default function Reports() {
                     contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)', fontWeight: 'bold' }}
                   />
                   {categories.map((cat, i) => (
-                     <Bar key={cat} dataKey={cat} stackId="a" fill={COLORS[i % COLORS.length]} radius={i === categories.length - 1 ? [4, 4, 0, 0] : [0, 0, 0, 0]} />
+                     <Bar isAnimationActive={false} key={cat} dataKey={cat} stackId="a" fill={COLORS[i % COLORS.length]} radius={i === categories.length - 1 ? [4, 4, 0, 0] : [0, 0, 0, 0]} />
                   ))}
                 </BarChart>
               </ResponsiveContainer>
@@ -281,6 +299,7 @@ export default function Reports() {
                     outerRadius={100}
                     paddingAngle={8}
                     dataKey="value"
+                    isAnimationActive={false}
                   >
                     {pieData.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} stroke="none" />
@@ -304,9 +323,10 @@ export default function Reports() {
                   <span className="text-sm font-black text-slate-900">{item.value}</span>
                 </div>
               ))}
-           </div>
-        </div>
-      </section>
+            </div>
+          </div>
+        </section>
+      </div>
 
       {/* TOP ACHIEVEMENTS */}
       <section className="bg-slate-900 rounded-[48px] p-12 text-white relative overflow-hidden">
