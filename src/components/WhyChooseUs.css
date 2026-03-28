@@ -1,0 +1,42 @@
+.why-section {
+  padding: 100px 5%;
+  background: #ffffff;
+  text-align: center;
+}
+
+.why-header h2 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.why-header p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 60px;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.why-card {
+  padding: 40px;
+  border-radius: 20px;
+  transition: 0.4s ease;
+  background: #f8f9fc;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.why-card:hover {
+  transform: translateY(-10px);
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+  color: white;
+}
+
+.why-icon {
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+

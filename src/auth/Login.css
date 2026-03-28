@@ -1,0 +1,232 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login-wrapper {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+/* LEFT SIDE */
+.left-section {
+  flex: 1;
+  background: linear-gradient(135deg, #3b82f6, #22c55e);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  color: white;
+}
+
+.left-content {
+  max-width: 450px;
+}
+
+.left-content img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 30px;
+}
+
+.left-content h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.left-content p {
+  font-size: 16px;
+}
+
+/* RIGHT SIDE */
+.right-section {
+  flex: 1;
+  background: #f9fafb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-box {
+  width: 400px;
+}
+
+.form-box h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  margin-bottom: 25px;
+  color: gray;
+}
+
+.form-box input[type="email"],
+.form-box input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.remember input {
+  width: 15px;
+  height: 15px;
+}
+
+.forgot {
+  color: #22c55e;
+  cursor: pointer;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #22c55e;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #16a34a;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.signup-link span {
+  color: #22c55e;
+  cursor: pointer;
+}
+
+.back {
+  text-align: center;
+  margin-top: 15px;
+  color: gray;
+  cursor: pointer;
+}
+
+/* SUCCESS MESSAGE ANIMATION */
+.success-msg {
+  margin-top: 15px;
+  color: #16a34a;
+  font-weight: 500;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-box {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 320px;
+  text-align: center;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.popup-buttons button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+/* OVERLAY */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* POPUP BOX */
+.popup-box {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.popup-box h3 {
+  margin-bottom: 10px;
+}
+
+.popup-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.yes-btn {
+  background: #22c55e;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.no-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}

@@ -1,0 +1,351 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #f4f6f9;
+}
+
+/* Top Navbar */
+.top-navbar {
+  height: 70px;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #22c55e;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links a {
+  cursor: pointer;
+  color: #6b21a8;
+  font-weight: 500;
+}
+
+.active-link {
+  text-decoration: underline;
+}
+
+.signup-btn {
+  background: #7c3aed;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* Layout */
+.dashboard-layout {
+  display: flex;
+  height: calc(100vh - 70px);
+}
+
+/* Sidebar */
+.sidebar {
+  width: 230px;
+  background: #ffffff;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #eee;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  color: #444;
+}
+
+.menu li.active {
+  background: #22c55e;
+  color: white;
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: red;
+  cursor: pointer;
+}
+
+/* Main */
+.main-content {
+  flex: 1;
+  padding: 40px;
+}
+
+.welcome h1 {
+  margin-bottom: 6px;
+}
+
+.welcome p {
+  color: #777;
+  margin-bottom: 30px;
+}
+
+/* Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.stat-card {
+  background: white;
+  padding: 22px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon.green { background: #dcfce7; color: #16a34a; }
+.icon.blue { background: #dbeafe; color: #2563eb; }
+.icon.yellow { background: #fef9c3; color: #ca8a04; }
+
+.progress {
+  height: 6px;
+  background: #eee;
+  border-radius: 10px;
+  margin-top: 12px;
+}
+
+.bar {
+  height: 6px;
+  border-radius: 10px;
+}
+
+.bar.green { background: #22c55e; }
+.bar.blue { background: #3b82f6; }
+.bar.yellow { background: #eab308; }
+/* Bottom Section */
+.bottom-section {
+  display: flex;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* Weekly Card */
+.weekly-card {
+  flex: 2;
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* Inspiration Card */
+.inspiration-card {
+  flex: 1;
+  padding: 30px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #22c55e, #3b82f6);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.inspiration-card h3 {
+  margin-bottom: 20px;
+}
+
+.quote {
+  font-size: 16px;
+  font-style: italic;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.motivation {
+  font-size: 14px;
+  opacity: 0.9;
+}
+/* Today's Habits */
+
+.today-card {
+  margin-top: 40px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.today-card h3 {
+  margin-bottom: 25px;
+}
+
+/* Each Habit Row */
+.habit-item {
+  background: #f3f4f6;
+  padding: 18px 22px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.habit-item:last-child {
+  margin-bottom: 0;
+}
+
+.habit-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.habit-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.habit-icon.green {
+  background: #d1fae5;
+  color: #16a34a;
+}
+
+.habit-icon.blue {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.habit-icon.yellow {
+  background: #fef3c7;
+  color: #ca8a04;
+}
+
+.habit-info h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.habit-info span {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* Completed Text */
+.completed-text {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+/* Button */
+/* Smaller Button */
+.mark-btn-small {
+  background: #22c55e;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.mark-btn-small:hover {
+  background: #16a34a;
+}
+.mark-btn {
+  background: #22c55e;
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+
+  width: auto;          /* IMPORTANT */
+  flex: 0 0 auto;       /* IMPORTANT */
+}
+.today-reminder-card{
+background:white;
+padding:20px;
+border-radius:12px;
+margin-bottom:25px;
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+.today-reminder-card h3{
+margin-bottom:15px;
+}
+
+.reminder-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px 0;
+border-bottom:1px solid #eee;
+}
+
+.reminder-left{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.time-badge{
+background:#dcfce7;
+color:#16a34a;
+padding:4px 10px;
+border-radius:6px;
+font-size:12px;
+}
