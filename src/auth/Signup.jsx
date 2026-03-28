@@ -79,16 +79,16 @@ export default function Signup() {
       </div>
 
       {/* RIGHT SIDE: FORM */}
-      <div className="flex flex-col justify-center items-center p-8 bg-slate-50">
-        <div className="w-full max-w-md bg-white p-10 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 animate-fade-in">
+      <div className="flex flex-col justify-center items-center p-4 sm:p-8 bg-slate-50">
+        <div className="w-full max-w-md bg-white p-6 sm:p-10 rounded-3xl shadow-2xl shadow-slate-200/50 border border-slate-100 animate-fade-in relative z-10">
           <div className="mb-10 text-center lg:text-left">
-            <h2 className="text-3xl font-bold text-slate-900 mb-2">Join LifeTrack</h2>
-            <p className="text-slate-500">Create your account to start tracking today.</p>
+            <h2 className="text-3xl font-extrabold text-slate-900 mb-2">Join LifeTrack</h2>
+            <p className="text-slate-500 font-medium">Create your account to start tracking today.</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             {error && (
-              <div className="bg-red-50 border border-red-100 text-red-600 px-4 py-3 rounded-xl text-sm font-medium">
+              <div className="bg-red-50 border border-red-100 text-red-600 px-4 py-3 rounded-2xl text-sm font-bold flex items-center justify-center">
                 {error}
               </div>
             )}
@@ -160,7 +160,7 @@ export default function Signup() {
             </button>
           </form>
 
-          <p className="mt-8 text-center text-slate-500 text-sm">
+          <p className="mt-8 text-center text-slate-500 text-sm font-medium">
             Already have an account?{" "}
             <Link to="/login" className="text-accent-600 font-bold hover:underline underline-offset-4">
               Sign In
